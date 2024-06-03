@@ -1,0 +1,41 @@
+﻿.costrecord-table {
+}
+
+.costs-sum-row {
+    margin-top:30px;
+}
+
+table.costrecord-table > tbody > tr > td, table.costrecord-table > thead > tr > th {
+    width: 130px;
+    max-width: 130px;
+    overflow: hidden;
+    white-space: nowrap; /* That whitespaces don't wrap */
+}
+
+.edittable-remove-row {
+    width: 40px !important;
+    max-width: 40px;
+}
+
+/* Button for removing a cost calculation (left table)*/
+.btn-add-cost {
+    background-image: url('/img/Components/add-cost-record.png');
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+    color: orangered;
+    width: 15px;
+    height: 30px;
+}
+
+/* Button for removing a cost calculation (left table)*/
+.btn-trash {
+    background-image: url('/img/Components/table-remove.png');
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+    color: orangered;
+    width: 15px;
+    height: 30px;
+}
+

@@ -1,0 +1,44 @@
+﻿@using Demoproject_SPA_Dialogs.Models
+@model CalculationsWithTableModel
+
+<div class="mb-3">
+    <span class="me-5">Calculations (@Model.Calculations.Count()):</span>
+    <button onclick="openCalcDialogWindow()" class="btn-success">New calculation</button>
+</div>
+<div class="horizontal-container">
+    <div class="left-subcontainer footer-space">
+        <table class="calculation-table">
+            <thead>
+                <tr>
+                    <th>Date of Creation</th>
+                    <th>Cost calculation</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var calc in Model.Calculations)
+            {
+                <tr>
+                    <td>@(calc.Creation.ToString())</td>
+                    <td>@(calc.Name)</td>
+                        <td class="tabletooltip">
+                            <div class="tabletooltip-container">
+                                @(calc.Description)
+                            </div>
+                        </td>
+                        <td>
+                            <form class="d-inline" asp-controller="Home" asp-action="RemoveCalculation"><input hidden id="calcId" name="calcId" value="@(calc.Id)" /><button type="submit" class="btn btn-trash me-3"></button></form>
+                            <form class="d-inline" asp-controller="Home" asp-action="OpenCalculation"><input hidden id="calcId" name="calcId" value="@(calc.Id)" /><button type="submit" class="btn btn-light">Open</button></form>
+                        </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="right-subcontainer footer-space">
+        <partial name="~/Views/Components/_EditableCostsTable.cshtml"></partial>
+    </div>
+</div>
+
+

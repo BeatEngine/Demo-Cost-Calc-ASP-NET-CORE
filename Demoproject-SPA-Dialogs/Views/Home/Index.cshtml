@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Demoproject SPA - Dialogs";
+}
+
+@section head
+{
+    <link rel="stylesheet" href="~/css/Components/_CalculationsWithTable.css" />
+    <link rel="stylesheet" href="~/css/Components/_NewCalculationDialog.css" />
+    <link rel="stylesheet" href="~/css/Components/_EditableCostsTable.css" />
+}
+
+@section Scripts
+{
+    <script src="~/js/Components/_NewCalculationDialog.js"></script>
+    <script src="~/js/Components/_EditableCostsTable.js"></script>
+}
+
+<div class="text-center">
+    <div class="display-6">Demo editable Table</div>
+
+    <partial name="~/Views/Components/_CalculationsWithTable.cshtml"></partial>
+</div>

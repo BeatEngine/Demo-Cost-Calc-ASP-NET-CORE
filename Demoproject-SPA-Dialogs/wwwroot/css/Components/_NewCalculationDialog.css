@@ -1,0 +1,49 @@
+﻿
+
+.calc-dialog-window
+{
+    z-index:10;
+    display: block;
+    min-height: 400px;
+    width:85%;
+    position:absolute;
+    align-self: center;
+    background-color:aliceblue;
+
+
+    border-radius: 2px;
+    outline: groove;
+    outline-color: black;
+    outline-width:3 px;
+}
+
+.calc-dialog-window-closed {
+    visibility:hidden;
+}
+
+.calc-dialog-close {
+    display:inline;
+    position:absolute;
+    width: 25px;
+    height: 25px;
+    right: 0;
+}
+
+.calc-dialog-close:hover {
+    cursor: pointer;
+}
+
+.calc-dialog-head {
+    display: block;
+    height: 20%;
+    margin-top:10px;
+    margin-inline:25px;
+    margin-bottom:20px;
+    border-bottom: dotted black 1px;
+    }
+.calc-dialog-body {
+    margin-inline: 25px;
+    display: block;
+    height: 80%;
+}
+

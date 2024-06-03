@@ -1,0 +1,48 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+.fixed-top {
+    position: sticky;
+    display: block;
+    top: 0;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    min-width: 100%;
+    display: block;
+    border-top: solid 1px;
+    background-color:aliceblue;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.footer-space
+{
+    padding-bottom: 30px;
+}
+
+.container-dimensions {
+    min-height: 70vh;
+}

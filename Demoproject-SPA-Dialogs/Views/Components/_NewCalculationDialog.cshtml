@@ -1,0 +1,25 @@
+﻿
+
+<div id="calc-dialog-window" class="calc-dialog-window calc-dialog-window-closed">
+    <img onclick="closeCalcDialogWindow()" src="~/img/Components/dialog-close-btn.png" class="calc-dialog-close"></img>
+    <div class="calc-dialog-head">
+        <h2>Create new calculation</h2>
+    </div>
+    <div class="calc-dialog-body">
+        <form asp-controller="Home" asp-action="CreateCalculation" method="post">
+            <div class="form-group">
+                <label for="calcName">Name</label>
+                <input type="text" class="form-control" id="calcName" name="calcName" placeholder="My Calculation e.g. inventarcosts">
+                <span class="field-validation-error" data-valmsg-for="calcName"
+                      data-valmsg-replace="true">
+                    The Name field is required.
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="calcDescription">Description</label>
+                <textarea class="form-control" id="calcDescription" name="calcDescription" rows="2"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success mt-2">Create Calculation</button>
+        </form>
+    </div>
+</div>

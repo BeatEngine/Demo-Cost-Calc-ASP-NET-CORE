@@ -1,0 +1,93 @@
+﻿@using Demoproject_SPA_Dialogs.Models
+@model CalculationsWithTableModel
+
+@if(Model.currentCalculationId == -1)
+{
+    <div>
+        Create or open a Calculation to display...
+    </div>
+}
+else
+{
+    <h4>
+        @(Model.currentCalculationName)
+    </h4>
+}
+
+@if (Model.currentCalculationId != -1)
+{
+    <table class="costrecord-table table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Cost name</th>
+                <th>Cost period of time</th>
+                <th>Cost value</th>
+                <th class="edittable-remove-row">
+                    <form asp-controller="Home" asp-action="CreateNewCostrecord">
+                        <button name="btnInsert" type="submit" class="btn btn-add-cost"></button>
+                    </form>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="body-costrecords">
+            @foreach (var cost in Model.CurrentCostrecords)
+            {
+                <tr>
+                    <td>
+                        <input data-id="@(cost.Id)" type="text" name="costName" value="@(cost.Name)" />
+                    </td>
+                    <td>
+                        <select data-id="@(cost.Id)" name="costPeriod">
+                            @foreach (string? enumName in Enum.GetNames<PeriodType>())
+                            {
+                                @if (cost.Period.ToString() == enumName /*TODO find better way*/)
+                                {
+                                    <option selected value="@(enumName)">@(enumName)</option>
+                                }
+                                else
+                                {
+                                    <option value="@(enumName)">@(enumName)</option>
+                                }
+                                
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <input data-id="@(cost.Id)" type="text" name="costValue" value="@(cost.Value)" />
+                    </td>
+                    <td class="edittable-remove-row">
+                        <button name="btnRemove" class="btn btn-trash me-3"></button>
+                    </td>
+                </tr>
+            }
+            <tr class="costs-sum-row">
+                <td><strong>Sum of costs:</strong></td>
+                <td>
+                    <select id="sum-of-costs-select" data-id="@(Model.currentCalculationId)" name="costSum">
+                        @foreach (string? enumName in Enum.GetNames<PeriodType>())
+                        {
+                            @if (PeriodType.month.ToString() == enumName /*TODO find better way*/)
+                            {
+                                <option selected value="@(enumName)">@(enumName)</option>
+                            }
+                            else
+                            {
+                                <option value="@(enumName)">@(enumName)</option>
+                            }
+                        }
+                    </select>
+                </td>
+                <td>
+                    <!-- By default the value for the costs sum displayed is month -->
+                    <input readonly id="output-costs-sum" value="@(Model.CurrentCostsSumByPeriodName.GetValueOrDefault(PeriodType.month.ToString(), 0.0f))" />
+                    <!-- The following hidden inputs are used in JS to change the current result to the selected period of time -->
+                    @foreach (KeyValuePair<string, float> calculatedCostsEntry in Model.CurrentCostsSumByPeriodName.AsEnumerable<KeyValuePair<string, float>>())
+                    {
+                        <input hidden id="costs-sum-@(calculatedCostsEntry.Key)" name="@(calculatedCostsEntry.Key)" value="@(calculatedCostsEntry.Value)"></input>
+                    }
+                </td>
+                <td class="edittable-remove-row"> <!-- Empty placeholder for compatibillity with table on top --> </td>
+            </tr>
+        </tbody>
+    </table>
+}

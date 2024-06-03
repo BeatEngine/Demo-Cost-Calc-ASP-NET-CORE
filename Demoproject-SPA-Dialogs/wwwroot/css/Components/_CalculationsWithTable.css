@@ -1,0 +1,62 @@
+﻿.horizontal-container {
+    width: 100%;
+}
+
+.left-subcontainer {
+    float: left;
+    width: 50%;
+}
+
+.right-subcontainer {
+    float: right;
+    width: 50%;
+}
+
+.calculation-table {
+    position: sticky;
+}
+
+table.calculation-table > tbody > tr > td, table.calculation-table > thead > tr > th {
+    width: 130px;
+    max-width: 130px;
+    text-align: start;
+    overflow: hidden;
+    white-space: nowrap; /* That whitespaces don't wrap */
+}
+
+table.calculation-table > tbody > tr {
+    border-top: solid 1px black;
+}
+
+/* Button for removing a cost calculation (left table)*/
+.btn-trash {
+    background-image: url('/img/Components/table-remove.png');
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+    width: 15px;
+    height: 30px;
+}
+
+
+/* Tooltip container */
+.tabletooltip {
+}
+
+.tabletooltip-container {
+    position: relative;
+    max-width: 100px;
+    align-self: center;
+    z-index: 0;
+    top: 0;
+    left: 0;
+}
+.tabletooltip-container:hover {
+    white-space: normal;
+}
+    /* Show the tooltip text when you mouse over the tooltip container */
+.tabletooltip:hover {
+    overflow: visible;
+}
+
+
